@@ -252,7 +252,6 @@ export default {
 			this.$set(this.formData, 'action', action)
 			this.$set(this.formData, 'accessToken', data.token)
 			this.$nextTick(() => this.$refs.form.submit())
-
 			this.loading = LOADING_STATE.LOADING
 			this.loadingTimeout = setTimeout(() => {
 				console.error('Document loading failed due to timeout: Please check for failing network requests')
@@ -303,6 +302,7 @@ export default {
 					this.loading = LOADING_STATE.FRAME_READY
 					this.$emit('update:loaded', true)
 					FilesAppIntegration.initAfterReady()
+					this.sendPostMessage('Error_Messages', { websocketconnectionfailed: 'Failed to establish socket connection or socket connection closed unexpectedly. The reverse proxy might be misconfigured, please contact the administrator. For more info on proxy conifguration please checkout https://docs.nextcloud.com/server/latest/admin_manual/office/proxy.html' })
 				} else if (args.Status === 'Document_Loaded') {
 					this.documentReady()
 				} else if (args.Status === 'Failed') {

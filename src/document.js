@@ -544,6 +544,7 @@ const documentsMain = {
 				if (isMobileInterfaceAvailable()) {
 					PostMessages.sendWOPIPostMessage('loolframe', 'Disable_Default_UIAction', { action: 'UI_Hyperlink', disable: true })
 				}
+				// PostMessages.sendWOPIPostMessage('loolframe', 'Error_Messages', { websocketconnectionfailed: 'Failed to establish socket connection or socket connection closed unexpectedly. The reverse proxy might be misconfigured, please contact the administrator. For more info on proxy conifguration please checkout https://github.com/nextcloud/all-in-one/blob/main/reverse-proxy.md' })
 			})
 
 			// submit that
